@@ -83,20 +83,67 @@ function closePopup() {
 function showLoginForm() {
   document.getElementById("loginPopup").style.display = "flex";
 }
-
 function login() {
   let email = document.getElementById("loginEmail").value;
   let password = document.getElementById("loginPassword").value;
 
   if (email === "" || password === "") {
-      alert("Please fill out all fields.");
-      return;
+    alert("Please fill out all fields.");
+    return;
   }
 
-  alert("Login successful!");
-  closePopup();
+  const data = { email, password };
+
+  fetch("/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+    .then(res => res.json())
+    .then(response => {
+      alert(response.message);
+      if (response.success) {
+        closePopup();
+        // Optionally redirect or display user content
+        console.log("User logged in:", response.user);
+      }
+    })
+    .catch(err => {
+      console.error("Login error:", err);
+      alert("Login failed. Please try again.");
+    });
 }
 
+// function login() {
+//   let email = document.getElementById("loginEmail").value;
+//   let password = document.getElementById("loginPassword").value;
+
+//   if (email === "" || password === "") {
+//       alert("Please fill out all fields.");
+//       return;
+//   }
+
+//   alert("Login successful!");
+//   closePopup();
+// }
+
+// function signup() {
+//   let name = document.getElementById("signupName").value;
+//   let age = document.getElementById("signupAge").value;
+//   let gender = document.getElementById("signupGender").value;
+//   let email = document.getElementById("signupEmail").value;
+//   let password = document.getElementById("signupPassword").value;
+
+//   if (name === "" || age === "" || gender === "" || email === "" || password === "") {
+//       alert("Please fill out all fields.");
+//       return;
+//   }
+
+//   alert("Signup successful!");
+//   showLogin();
+// }
 function signup() {
   let name = document.getElementById("signupName").value;
   let age = document.getElementById("signupAge").value;
@@ -105,13 +152,32 @@ function signup() {
   let password = document.getElementById("signupPassword").value;
 
   if (name === "" || age === "" || gender === "" || email === "" || password === "") {
-      alert("Please fill out all fields.");
-      return;
+    alert("Please fill out all fields.");
+    return;
   }
 
-  alert("Signup successful!");
-  showLogin();
+  const data = { name, age, gender, email, password };
+
+  fetch("/signup", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+    .then(res => res.json())
+    .then(response => {
+      alert(response.message);
+      if (response.success) {
+        showLogin(); // Switch to login form
+      }
+    })
+    .catch(err => {
+      console.error("Signup error:", err);
+      alert("Signup failed. Please try again.");
+    });
 }
+
 
 function showDetails(plan) {
   let details = {
@@ -150,3 +216,25 @@ function showDetails(plan) {
 function closeDetails() {
   document.getElementById("nutritionDetails").style.display = "none";
 }
+function login() {
+  let email = document.getElementById("loginEmail").value;
+  let password = document.getElementById("loginPassword").value;
+  let role = document.getElementById("loginRole").value;
+
+  if (email === "" || password === "" || role === "") {
+      alert("Please fill out all fields.");
+      return;
+  }
+
+  alert("Login successful!");
+
+  if (role === "admin") {
+      window.location.assign("admin/admin_dashboard.html");
+  } else {
+      localStorage.setItem("showUserWelcome", "true"); // store flag
+      window.location.assign("user/user_dashboard.html");
+  }
+
+  closePopup();
+}
+
