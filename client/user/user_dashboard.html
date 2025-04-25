@@ -9,6 +9,10 @@
     <script src="user_dashboard.js" defer></script>
 </head>
 <body>
+        <div id="welcomeMessage" class="welcome-banner">
+            <p>👋 WELCOME TO USER DASHBOARD</p>
+        </div>
+    
 
     <!-- Hamburger Menu Checkbox -->
     <input type="checkbox" id="check">
@@ -26,6 +30,7 @@
             <li onclick="showSection('workout')"><i class="fa-solid fa-dumbbell"></i> Workouts</li>
             <li onclick="showSection('nutrition')"><i class="fa-solid fa-apple-alt"></i> Nutrition</li>
             <li onclick="showSection('blog')"><i class="fa-solid fa-newspaper"></i> Blogs</li>
+            <li onclick="logoutUser()"><i class="fa-solid fa-sign-out-alt"></i> Logout</li>
         </ul>
     </div>  
    
@@ -63,7 +68,21 @@
     <button onclick="updateNutritionPlan()">Get Your Plan</button>
     <div id="nutritionDetails"></div>
 </div>
-
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const welcomeBanner = document.getElementById("welcomeMessage");
+      const navItems = document.querySelectorAll(".sidebar li");
+  
+      navItems.forEach(item => {
+        item.addEventListener("click", () => {
+          if (welcomeBanner) {
+            welcomeBanner.style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
+  
 
 </body>
 </html>
