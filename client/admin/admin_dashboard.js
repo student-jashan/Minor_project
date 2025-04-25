@@ -307,7 +307,14 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+function logoutUser() {
+    // Optionally clear session or local storage here
+    // localStorage.clear(); // if using localStorage
+    // sessionStorage.clear(); // if using sessionStorage
 
+    // Redirect to login page or your official site
+    window.location.href = "index.html"; // Change to your actual login page
+  }
 
   
 
