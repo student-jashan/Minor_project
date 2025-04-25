@@ -9,6 +9,9 @@
     <script src="admin_dashboard.js" defer></script>
 </head>
 <body>
+    <div id="welcomeMessage" class="welcome-banner">
+        <p>👋 WELCOME TO ADMIN DASHBOARD</p>
+    </div>
     <input type="checkbox" id="check">
     <label for="check" class="menu-btn">
         <i class="fas fa-bars" id="btn"></i>
@@ -22,6 +25,8 @@
             <li onclick="showSection('workout-management')"><i class="fa-solid fa-dumbbell"></i> Manage Workouts</li>
             <li onclick="showSection('nutrition-management')"><i class="fa-solid fa-apple-alt"></i> Manage Nutrition</li>
             <li onclick="showSection('blog-management')"><i class="fa-solid fa-newspaper"></i> Manage Blogs</li>
+            <li onclick="logoutUser()"><i class="fa-solid fa-sign-out-alt"></i> Logout</li>
+
         </ul>
     </div>
 
@@ -142,7 +147,6 @@
 <section id="blog-management" class="blog" style="display: none;">
   <div class="row2">
     <div class="col2">
-      <p>INSIGHTFUL & INSPIRING</p>
       <h1> Latest Blogs</h1>
     </div>
   </div>
@@ -187,5 +191,20 @@
     </div>
   </div>
 </section>
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const welcomeBanner = document.getElementById("welcomeMessage");
+      const navItems = document.querySelectorAll(".sidebar li");
+  
+      navItems.forEach(item => {
+        item.addEventListener("click", () => {
+          if (welcomeBanner) {
+            welcomeBanner.style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
+  
 </body>
 </html>
