@@ -32,7 +32,7 @@
         </nav>
         <div class="text-box">
             <h1>Your Fitness Journey<br>Starts Here!</h1>
-            <a href="login.html" class="btn">Get Started</a>
+            <a href="#" class="btn">Get Started</a>
         </div>
     </section>
 
@@ -56,20 +56,25 @@
 
       <!-- Signup Form -->
       <div id="signupForm" style="display: none;">
-          <h2>Sign Up</h2>
-          <input type="text" id="signupName" placeholder="Enter Name" required>
-          <input type="number" id="signupAge" placeholder="Enter Age" required>
-          <select id="signupGender">
-              <option value="">Select Gender</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Other">Other</option>
-          </select>
-          <input type="email" id="signupEmail" placeholder="Enter Email" required>
-          <input type="password" id="signupPassword" placeholder="Enter Password" required>
-          <button onclick="signup()">Sign Up</button>
-          <p class="small-text">Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        <h2>Sign Up</h2>
+        <input type="text" id="signupName" placeholder="Enter Name" required>
+        <input type="number" id="signupAge" placeholder="Enter Age" required>
+        <select id="signupGender">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+        <input type="email" id="signupEmail" placeholder="Enter Email" required>
+        <input type="password" id="signupPassword" placeholder="Enter Password" required>
+        
+        <!-- Add a hidden field for role (to prevent users from signing up as admin) -->
+        <input type="hidden" id="signupRole" value="user">
+        
+        <button onclick="signup()">Sign Up</button>
+        <p class="small-text">Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
       </div>
+      
   </div>
 </div>
 
@@ -244,15 +249,17 @@
   <div class="card-content">
     <h4>Time-Friendly Fitness: The Advantages of Gyms with Flexible Hours</h4>
     <p>Mindful eating entails fully engaging in the present moment and maintaining an awareness of your thoughts, emotions, and bodily sensations as you eat your food.</p>
-    <button onclick="openForm(`Finding time for physical activity in today is fast-paced world can be challenging. We totally get it. Juggling work, childcare, and social obligations often leaves little room for regular exercise.
+    <button onclick="openForm(
+  `Finding time for physical activity in today’s fast-paced world can be challenging. We totally get it. Juggling work, childcare, and social obligations often leaves little room for regular exercise.
 
-    That is why finding a gym that can fit your busy schedule is so important when trying to make time to work out! Flexible-hour fitness centers provide the same benefits as traditional gyms but offer the freedom to work out whenever it suits your schedule.
-    
-    Joining a gym can create a lifestyle that works for you—making your needs a priority. Find a local club with flexible hours for all schedules.
-    
-    `)">
-      Read More
-    </button>
+That is why finding a gym that can fit your busy schedule is so important when trying to make time to work out! Flexible-hour fitness centers provide the same benefits as traditional gyms but offer the freedom to work out whenever it suits your schedule.
+
+Joining a gym can create a lifestyle that works for you—making your needs a priority. Find a local club with flexible hours for all schedules.`,
+  `Time-Friendly Fitness: The Advantages of Gyms with Flexible Hours`
+)">
+  Read More
+</button>
+
   </div>
 </div>
 
@@ -260,19 +267,21 @@
 
 
        
-          <div class="card">
-            <img src="Images/bbg4.PNG" alt="">
-            <div class="card-content">
-              <h4>The Ultimate Full-body circuit workout for beginners</h4>
-              <p>Keeping your fitness journey fresh and exciting can feel like a lifelong quest. You want to balance your workout routine full of old favorites you know and love while throwing in new adventures so you steer clear of boredom and make the most out of the time you spend moving.</p>
-              <button onclick="openForm(`Keeping your fitness journey fresh and exciting can feel like a lifelong quest. You want to balance your workout routine full of old favorites you know and love while throwing in new adventures so you steer clear of boredom and make the most out of the time you spend moving.
-              One of our favorite ways to bust out of a workout rut is by mixing in some circuit training. If you’re a beginner—or just looking to add something new to your routine—circuit workouts are a dynamic and efficient workout style that combines strength and cardio exercises, making it ideal for a lot of diverse groups. Read on to rediscover the forgotten fun of circuit workouts or learn about circuit training workouts for the first time.
-              `)">
-                Read More
-              </button>
-              
-            </div>
-          </div>
+<div class="card">
+  <img src="Images/bbg4.PNG" alt="">
+  <div class="card-content">
+    <h4>The Ultimate Full-body Circuit Workout for Beginners</h4>
+    <p>Keeping your fitness journey fresh and exciting can feel like a lifelong quest. You want to balance your workout routine full of old favorites you know and love while throwing in new adventures so you steer clear of boredom and make the most out of the time you spend moving.</p>
+    <button onclick="openForm(
+      `Keeping your fitness journey fresh and exciting can feel like a lifelong quest. You want to balance your workout routine full of old favorites you know and love while throwing in new adventures so you steer clear of boredom and make the most out of the time you spend moving.
+      One of our favorite ways to bust out of a workout rut is by mixing in some circuit training. If you’re a beginner—or just looking to add something new to your routine—circuit workouts are a dynamic and efficient workout style that combines strength and cardio exercises, making it ideal for a lot of diverse groups. Read on to rediscover the forgotten fun of circuit workouts or learn about circuit training workouts for the first time.`,
+      `The Ultimate Full-body Circuit Workout for Beginners`
+    )">
+      Read More
+    </button>
+  </div>
+</div>
+
           <div class="row">
 
 </section>
